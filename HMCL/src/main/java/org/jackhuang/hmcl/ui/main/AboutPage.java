@@ -45,15 +45,15 @@ public final class AboutPage extends StackPane {
         {
             IconedTwoLineListItem launcher = new IconedTwoLineListItem();
             launcher.setImage(FXUtils.newBuiltinImage("/assets/img/icon.png"));
-            launcher.setTitle("Hello Minecraft! Launcher");
+            launcher.setTitle("Hello Minecraft! Launcher Modded");
             launcher.setSubtitle(Metadata.VERSION);
             launcher.setExternalLink(Metadata.PUBLISH_URL);
 
             IconedTwoLineListItem author = new IconedTwoLineListItem();
-            author.setImage(FXUtils.newBuiltinImage("/assets/img/yellow_fish.png"));
-            author.setTitle("huanghongxun");
+            author.setImage(FXUtils.newBuiltinImage("/assets/img/baymaxawa.png"));
+            author.setTitle("Baymaxawa");
             author.setSubtitle(i18n("about.author.statement"));
-            author.setExternalLink("https://space.bilibili.com/1445341");
+            author.setExternalLink("https://space.bilibili.com/475655508");
 
             about.getContent().setAll(launcher, author);
         }

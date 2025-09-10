@@ -59,32 +59,8 @@ public class DownloadSettingsPage extends StackPane {
             downloadSource.getStyleClass().add("card-non-transparent");
             {
 
-                VBox chooseWrapper = new VBox();
-                chooseWrapper.setPadding(new Insets(8, 0, 8, 0));
-                JFXCheckBox chkAutoChooseDownloadSource = new JFXCheckBox(i18n("settings.launcher.download_source.auto"));
-                chkAutoChooseDownloadSource.selectedProperty().bindBidirectional(config().autoChooseDownloadTypeProperty());
-                chooseWrapper.getChildren().setAll(chkAutoChooseDownloadSource);
-
-                BorderPane versionListSourcePane = new BorderPane();
-                versionListSourcePane.setPadding(new Insets(0, 0, 8, 30));
-                versionListSourcePane.disableProperty().bind(chkAutoChooseDownloadSource.selectedProperty().not());
-                {
-                    Label label = new Label(i18n("settings.launcher.version_list_source"));
-                    BorderPane.setAlignment(label, Pos.CENTER_LEFT);
-                    versionListSourcePane.setLeft(label);
-
-                    JFXComboBox<String> cboVersionListSource = new JFXComboBox<>();
-                    cboVersionListSource.setConverter(stringConverter(key -> i18n("download.provider." + key)));
-                    versionListSourcePane.setRight(cboVersionListSource);
-                    FXUtils.setLimitWidth(cboVersionListSource, 400);
-
-                    cboVersionListSource.getItems().setAll(DownloadProviders.providersById.keySet());
-                    selectedItemPropertyFor(cboVersionListSource).bindBidirectional(config().versionListSourceProperty());
-                }
-
                 BorderPane downloadSourcePane = new BorderPane();
                 downloadSourcePane.setPadding(new Insets(0, 0, 8, 30));
-                downloadSourcePane.disableProperty().bind(chkAutoChooseDownloadSource.selectedProperty());
                 {
                     Label label = new Label(i18n("settings.launcher.download_source"));
                     BorderPane.setAlignment(label, Pos.CENTER_LEFT);
@@ -99,7 +75,7 @@ public class DownloadSettingsPage extends StackPane {
                     selectedItemPropertyFor(cboDownloadSource).bindBidirectional(config().downloadTypeProperty());
                 }
 
-                downloadSource.getChildren().setAll(chooseWrapper, versionListSourcePane, downloadSourcePane);
+                downloadSource.getChildren().setAll(downloadSourcePane);
             }
 
             content.getChildren().addAll(ComponentList.createComponentListTitle(i18n("settings.launcher.download_source")), downloadSource);

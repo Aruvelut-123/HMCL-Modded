@@ -516,37 +516,6 @@ public final class Config implements Observable {
     public void setDownloadType(String downloadType) {
         this.downloadType.set(downloadType);
     }
-
-    @SerializedName("autoChooseDownloadType")
-    private final BooleanProperty autoChooseDownloadType = new SimpleBooleanProperty(true);
-
-    public BooleanProperty autoChooseDownloadTypeProperty() {
-        return autoChooseDownloadType;
-    }
-
-    public boolean isAutoChooseDownloadType() {
-        return autoChooseDownloadType.get();
-    }
-
-    public void setAutoChooseDownloadType(boolean autoChooseDownloadType) {
-        this.autoChooseDownloadType.set(autoChooseDownloadType);
-    }
-
-    @SerializedName("versionListSource")
-    private final StringProperty versionListSource = new SimpleStringProperty("balanced");
-
-    public StringProperty versionListSourceProperty() {
-        return versionListSource;
-    }
-
-    public String getVersionListSource() {
-        return versionListSource.get();
-    }
-
-    public void setVersionListSource(String versionListSource) {
-        this.versionListSource.set(versionListSource);
-    }
-
     @SerializedName("hasProxy")
     private final BooleanProperty hasProxy = new SimpleBooleanProperty();
 
